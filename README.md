@@ -245,6 +245,7 @@ Esto se puede hacer a través de los ajustes en el `serverless.yml`.
 En caso de que esperes mucha fluctuación de tráfico, te recomendamos que consultes esta guía sobre cómo escalar automáticamente el DynamoDB [https://aws.amazon.com/blogs/aws/auto-scale-dynamodb-with-dynamic-dynamodb/](https://aws.amazon.com/blogs/aws/auto-scale-dynamodb-with-dynamic-dynamodb/)
 
 ### PR
-- 20200122 1558 Generar PR
-- 20200122 1607 Generar PR
+- 202001222 1558 Generar PR
+- 202001222 1607 Generar PR
+- 202001224 1131 Generar PR
 
