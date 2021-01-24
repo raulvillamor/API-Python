@@ -1,3 +1,5 @@
+org: devopsunir
+app: api-restful-todo
 service: serverless-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0"
@@ -40,6 +42,14 @@ functions:
     events:
       - http:
           path: todos/{id}
+          method: get
+          cors: true
+
+  translate:
+    handler: todos/translate.translate
+    events:
+      - http:
+          path: todos/{id}/{lang}
           method: get
           cors: true
 
