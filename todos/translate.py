@@ -23,12 +23,13 @@ def translate(event, context):
     translate = boto3.client(service_name='translate', region_name='region', use_ssl=True)
  
     # Anadimos nuevo index con el resultado de idioma traducido.
-    result[lang] = translate.translate_text(Text=result['Item'], SourceLanguageCode="es", TargetLanguageCode=lang)
+    #result[lang] = translate.translate_text(Text=result['Item'], SourceLanguageCode="es", TargetLanguageCode=lang)
+    result['Item']['text'] =  translate.translate_text(Text=result['Item']['text'], SourceLanguageCode="es", TargetLanguageCode=lang)
 
     # create a response
     response = {
         "statusCode": 200,
-        "body": json.dumps(result[lang],
+        "body": json.dumps(result['Item'],
                            cls=decimalencoder.DecimalEncoder)
     }
 
