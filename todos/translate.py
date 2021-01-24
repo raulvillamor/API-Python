@@ -7,11 +7,16 @@ dynamodb = boto3.resource('dynamodb')
 
 def translate(event, context, lang):
     # fetch todo from the database
+
+    table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+
     result = table.get_item(
         Key={
             'id': event['pathParameters']['id']
         }
     )
+
+    lang = event['pathParameters']['lang'] 
     
     # https://docs.aws.amazon.com/es_es/translate/latest/dg/translate-dg.pdf
     translate = boto3.client(service_name='translate', region_name='region', use_ssl=True)
