@@ -20,9 +20,9 @@ def translate(event, context):
     lang = event['pathParameters']['lang'] 
     
     # https://docs.aws.amazon.com/es_es/translate/latest/dg/translate-dg.pdf
-    translate = boto3.client(service_name='translate', region_name='region', use_ssl=True)
+    translate = boto3.client(service_name='translate', region_name='us-east-1', use_ssl=True)
 
-    translate_text = translate.translate_text(Text=result['Item']['text'], SourceLanguageCode="es", TargetLanguageCode=lang)
+    translate_text = translate.translate_text(Text=result['Item']['text'], SourceLanguageCode="auto", TargetLanguageCode=lang)
     print("%s - %s" % (lang, translate_text))
  
     # Anadimos nuevo index con el resultado de idioma traducido.
